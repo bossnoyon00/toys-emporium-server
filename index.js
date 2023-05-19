@@ -44,7 +44,17 @@ async function run() {
         const indexOptions = { name: "titleCategory" }; // Replace index_name with the desired index name
         const result = await toyCollection.createIndex(indexKeys, indexOptions);
 
-      
+   
+
+        app.get("/singleToy/:id", async (req, res) => {
+            console.log(req.params.id);
+            const id = req.params;
+            const jobs = await toyCollection.findOne({
+                _id: new ObjectId(id),
+            });
+            res.send(jobs);
+        });
+
 
         app.get('/myToys/:email', async (req, res) => {
             const email = req.params.email
