@@ -46,6 +46,13 @@ async function run() {
 
        
 
+        app.get('/post-toys/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await toyCollection.findOne(query);
+            res.send(result)
+        })
+
         app.put('/post-toys/:id', async (req, res) => {
             const id = req.params.id;
             const filter = { _id: new ObjectId(id) }
