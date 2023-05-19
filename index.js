@@ -44,7 +44,17 @@ async function run() {
         const indexOptions = { name: "titleCategory" }; // Replace index_name with the desired index name
         const result = await toyCollection.createIndex(indexKeys, indexOptions);
 
-     
+        app.get('/searchByName/:text', async (req, res) => {
+            const searchText = req.params.text;
+            const result = await toyCollection.find({
+                $or: [
+                    { toyName: { $regex: searchText, $options: "i" } }
+                ],
+            })
+                .toArray()
+            res.send(result)
+        })
+
         app.post("/post-toys", async (req, res) => {
             const body = req.body;
             body.createdAt = new Date();
