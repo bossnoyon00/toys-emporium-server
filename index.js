@@ -44,7 +44,29 @@ async function run() {
         const indexOptions = { name: "titleCategory" }; // Replace index_name with the desired index name
         const result = await toyCollection.createIndex(indexKeys, indexOptions);
 
-      
+       
+
+        app.put('/post-toys/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) }
+            const options = { upsert: true };
+            const updatedToys = req.body;
+            const toys = {
+                $set: {
+                    userName: updatedToys.userName,
+                    image: updatedToys.image,
+                    postedBy: updatedToys.postedBy,
+                    quantity: updatedToys.quantity,
+                    description: updatedToys.description,
+                    price: updatedToys.price,
+                    toyName: updatedToys.toyName,
+                    subCategory: updatedToys.subCategory,
+                    ratings: updatedToys.ratings,
+                }
+            }
+            const result = await toyCollection.updateOne(filter, toys, options)
+            res.send(result)
+        })
 
         app.delete('/post-toys/:id', async (req, res) => {
             const id = req.params.id;
