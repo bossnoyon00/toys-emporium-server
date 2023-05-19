@@ -44,7 +44,15 @@ async function run() {
         const indexOptions = { name: "titleCategory" }; // Replace index_name with the desired index name
         const result = await toyCollection.createIndex(indexKeys, indexOptions);
 
-       
+      
+
+        app.get('/myToys/:email', async (req, res) => {
+            const email = req.params.email
+            console.log(req.params.email)
+            const result = await toyCollection.find({ postedBy: email }).toArray()
+            res.send(result)
+        })
+
 
         app.get('/post-toys/:id', async (req, res) => {
             const id = req.params.id;
