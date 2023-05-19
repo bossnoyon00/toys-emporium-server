@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "category": "Video game toys",
+        "name": "Super Mario Action Figure Set",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Action Figures"
+       
+    },
+    {
+        "id": 2,
+        "category": "Video game toys",
+        "name": "Minecraft Mini-Figures Pack",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Action Figures"
+       
+    },
+    {
+        "id": 3,
+        "category": "Video game toys",
+        "name": "God of War Kratos Action Figure",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Action Figures"
+       
+    },
+    {
+        "id": 4,
+        "category": "Video game toys",
+        "name": "Sonic the Hedgehog Remote Control Car",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Racing Toys"
+       
+    },
+    {
+        "id": 5,
+        "category": "Video game toys",
+        "name": "Pokémon Plush Starter Set",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Racing Toys"
+       
+    },
+    {
+        "id": 6,
+        "category": "Video game toys",
+        "name": "Fortnite Building Block Set",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Racing Toys"
+       
+    },
+    {
+        "id": 7,
+        "category": "Video game toys",
+        "name": "Animal Crossing Plush Collection",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Plush Toys"
+       
+    },
+    {
+        "id": 8,
+        "category": "Video game toys",
+        "name": "Resident Evil Zombie Plush Toy",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Plush Toys"
+       
+    },
+    {
+        "id": 9,
+        "category": "Video game toys",
+        "name": "The Witcher Geralt of Plush Statue",
+        "img": "",
+        "price": "20.00",
+        "rating" : 5,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius veniam nostrum dolores nemo quas.",
+       "sub_category": "Plush Toys"
+       
+    }
+   
+]
