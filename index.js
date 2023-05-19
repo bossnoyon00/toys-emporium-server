@@ -44,7 +44,21 @@ async function run() {
         const indexOptions = { name: "titleCategory" }; // Replace index_name with the desired index name
         const result = await toyCollection.createIndex(indexKeys, indexOptions);
 
-   
+     
+        app.post("/post-toys", async (req, res) => {
+            const body = req.body;
+            body.createdAt = new Date();
+            console.log(body);
+            const result = await toyCollection.insertOne(body);
+            if (result?.insertedId) {
+                return res.status(200).send(result);
+            } else {
+                return res.status(404).send({
+                    message: "can not insert try again leter",
+                    status: false,
+                });
+            }
+        });
 
         app.get("/singleToy/:id", async (req, res) => {
             console.log(req.params.id);
