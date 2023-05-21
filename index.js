@@ -14,7 +14,7 @@ app.use(cors())
 
 
 
-
+//uri
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.z9fzoxa.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -29,15 +29,18 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
+        // await client.connect();
 
         const toyCollection = client.db("toyDB").collection("addToys");
 
+        //All toy get
         app.get('/allToy', async (req, res) => {
             const toys = await toyCollection.find().limit(20).toArray();
             res.send(toys);
         })
 
+
+        //get sub category
         app.get('/allToy/:subCategory', async (req, res) => {
             const category = req.params.subCategory;
             const result = await toyCollection.find({ subCategory: category }).toArray()
@@ -45,12 +48,7 @@ async function run() {
         })
 
 
-
-        // Creating index on two fields
-        const indexKeys = { title: 1, category: 1 }; // Replace field1 and field2 with your actual field names
-        const indexOptions = { name: "titleCategory" }; // Replace index_name with the desired index name
-        const result = await toyCollection.createIndex(indexKeys, indexOptions);
-
+        //search  by name emplement
         app.get('/searchByName/:text', async (req, res) => {
             const searchText = req.params.text;
             const result = await toyCollection.find({
@@ -62,6 +60,8 @@ async function run() {
             res.send(result)
         })
 
+
+        //POST ROUTE METHOD
         app.post("/post-toys", async (req, res) => {
             const body = req.body;
             body.createdAt = new Date();
@@ -77,6 +77,8 @@ async function run() {
             }
         });
 
+
+        //SINGLE TOY GET
         app.get("/singleToy/:id", async (req, res) => {
             console.log(req.params.id);
             const id = req.params;
@@ -87,6 +89,8 @@ async function run() {
         });
 
 
+
+        //EMAIL MATCH
         app.get('/myToys/:email', async (req, res) => {
             const sort = req.query.price;
             const email = req.params.email;
@@ -114,6 +118,8 @@ async function run() {
             res.send(result)
         })
 
+
+        //UPDATE TOY METHOD
         app.put('/post-toys/:id', async (req, res) => {
             const id = req.params.id;
             const filter = { _id: new ObjectId(id) }
@@ -136,6 +142,8 @@ async function run() {
             res.send(result)
         })
 
+
+        //DELETED METHOD
         app.delete('/post-toys/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) }
