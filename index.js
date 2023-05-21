@@ -87,7 +87,25 @@ async function run() {
         });
 
 
-   
+        app.get('/myToys/:email', async (req, res) => {
+            const sort = req.query.price;
+            const email = req.params.email;
+            console.log(req.query.price);
+            if (sort == 'ascending') {
+                let result = await toyCollection.find({ postedBy: email }).sort({ price: 1 }).toArray();
+                res.send(result)
+            }
+            else if (sort == 'descending') {
+                let result = await toyCollection.find({ postedBy: email }).sort({ price: -1 }).toArray();
+                res.send(result)
+            }
+            else {
+                const result = await toyCollection.find({ postedBy: email }).toArray()
+                res.send(result)
+
+            }
+        });
+
 
         app.get('/post-toys/:id', async (req, res) => {
             const id = req.params.id;
