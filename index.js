@@ -38,6 +38,13 @@ async function run() {
             res.send(toys);
         })
 
+        app.get('/allToy/:subCategory', async (req, res) => {
+            const category = req.params.subCategory;
+            const result = await toyCollection.find({ subCategory: category }).toArray()
+            res.send(result)
+        })
+
+
 
         // Creating index on two fields
         const indexKeys = { title: 1, category: 1 }; // Replace field1 and field2 with your actual field names
@@ -80,13 +87,7 @@ async function run() {
         });
 
 
-        app.get('/myToys/:email', async (req, res) => {
-            const email = req.params.email
-            console.log(req.params.email)
-            const result = await toyCollection.find({ postedBy: email }).toArray()
-            res.send(result)
-        })
-
+   
 
         app.get('/post-toys/:id', async (req, res) => {
             const id = req.params.id;
